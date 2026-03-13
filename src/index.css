@@ -1,0 +1,240 @@
+:root {
+  --bg-dark-base: #09090b;
+  --bg-gradient: radial-gradient(circle at top right, #1a1a1f, #09090b 70%);
+  --card-grey: rgba(28, 28, 30, 0.6);
+  --card-grey-light: rgba(44, 44, 46, 0.8);
+  --accent-red: #E53935;
+  --accent-red-hover: #D32F2F;
+  --accent-red-glow: rgba(229, 57, 53, 0.3);
+  --text-white: #FFFFFF;
+  --text-muted: #A1A1AA;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(255, 255, 255, 0.2);
+  --success-green: #10B981;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark-base);
+  color: var(--text-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Beautiful Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Base Desktop Container */
+body {
+  background-color: #050505;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(229, 57, 53, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+}
+
+/* App Wrapper - Mobile First */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  width: 100%;
+  max-width: 480px; 
+  margin: 0 auto;
+  background: var(--bg-dark-base);
+  position: relative;
+  overflow: hidden; /* Hide main overflow */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); /* subtle separation on desktop */
+}
+
+/* Typography Classes */
+.text-h1 { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -0.5px; }
+.text-h2 { font-size: 22px; font-weight: 600; line-height: 1.3; letter-spacing: -0.3px; }
+.text-h3 { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.text-body { font-size: 16px; font-weight: 400; }
+.text-sm { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+.text-xs { font-size: 12px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;}
+
+/* Utility Classes */
+.text-red { color: var(--accent-red); }
+.text-white { color: var(--text-white); }
+.text-muted { color: var(--text-muted); }
+.font-semibold { font-weight: 600; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-8 { margin-bottom: 32px; }
+
+/* Common UI Elements */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-red) 0%, #b71c1c 100%);
+  color: var(--text-white);
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px -6px rgba(229, 57, 53, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-primary:active {
+  transform: scale(0.96) translateY(2px);
+  box-shadow: 0 4px 10px -4px rgba(229, 57, 53, 0.6);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ff4c4c 0%, var(--accent-red) 100%);
+}
+.btn-primary:disabled {
+  background: var(--card-grey);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  opacity: 0.7;
+  border-color: transparent;
+  transform: none;
+}
+
+/* Glass & Premium Cards */
+.card {
+  background-color: var(--card-grey);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px -8px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+.card-interactive:active {
+  transform: scale(0.97);
+  background-color: var(--card-grey-light);
+}
+.card-interactive.selected {
+  border-color: var(--accent-red);
+  background-color: rgba(229, 57, 53, 0.08);
+  box-shadow: 0 0 24px 0 rgba(229, 57, 53, 0.15), inset 0 0 0 1px var(--accent-red);
+}
+
+/* Inputs */
+.input-field {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-white);
+  padding: 16px 20px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-field:focus {
+  border-color: var(--accent-red);
+  background-color: rgba(229, 57, 53, 0.02);
+  box-shadow: 0 0 0 4px rgba(229, 57, 53, 0.1);
+}
+.input-field::placeholder {
+  color: var(--text-muted);
+}
+/* Fix Webkit Autofill Background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #1c1c1e inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Page / View Wrappers */
+.page-enter {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: slideIn 0.3s ease-out;
+  will-change: transform, opacity;
+}
+
+/* Make content scrollable, bottom actions fixed at bottom */
+.scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 24px;
+}
+
+/* Bottom Actions Container (Navigation) */
+.bottom-actions {
+  width: 100%;
+  padding: 16px 24px 24px 24px;
+  background: rgba(9, 9, 11, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border-subtle);
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for loading animations */
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.4; }
+}
